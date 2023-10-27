@@ -13,6 +13,24 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 
+      $query = $conn->prepare("SELECT * FROM IVR");
+      $query->execute();
+
+      foreach ($conn->query($query) as $row) {
+        print $row['ID'] . "\t";
+        print $row['ScenarioId'] . "\t";
+        print $row['CallerNumber'] . "\n";
+        print $row['CallerName'] . "\n";
+        print $row['StudentID'] . "\n";
+        print $row['ContactID'] . "\n";
+		print "---------------------------------------\n";
+    }
+
+      unset($conn); 
+      unset($query);
+
+
+
 // SQL Server Extension Sample Code:
 //$connectionInfo = array("UID" => "sa.admin", "pwd" => "{your_password_here}", "Database" => "landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 //$serverName = "tcp:landis.database.windows.net,1433";
