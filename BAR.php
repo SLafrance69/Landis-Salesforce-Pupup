@@ -11,7 +11,7 @@
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT [ID],[ScenarioId],[CallerNumber],[CallerName],[StudentID],[ContactID] FROM [dbo].[IVR-BAR] WHERE [dbo].[IVR-BAR].ScenarioId like '"+ $ScenarioId +"' ";
+    $tsql= "SELECT [ID],[ScenarioId],[CallerNumber],[CallerName],[StudentID],[ContactID] FROM [dbo].[IVR-BAR] WHERE [dbo].[IVR-BAR].ScenarioId like '".$ScenarioId."' ";
     $getResults= sqlsrv_query($conn, $tsql);
 
 	$Count=0;
