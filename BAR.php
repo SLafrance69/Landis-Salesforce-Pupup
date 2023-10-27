@@ -37,9 +37,19 @@
 <style type="text/css">
 body {
     background-color: #FFFFFF;
+    color: #000000;
 }
 </style>
 </head>
+
+<script language="javascript">
+	function F_Launch(IN){
+		var V_URL="https://collegelacite.lightning.force.com/lightning/r/Contact/"+IN+"/view";
+		window.open(V_URL,'Landis-SF');
+		return;	
+	}
+</script>
+
 <body>
 	<table width="95%" border="4" align="center">
 	  <tbody>
@@ -52,22 +62,33 @@ body {
 	  <tbody>
 	    <tr>
 	      <td width="25%" align="right" valign="middle" bgcolor="#AAAAAA" style="font-size: 18px">ScenarioId</td>
-	      <td align="left" valign="middle" bgcolor="#FFFFFF" style="color: #FFFFFF"><?PHP echo $ScenarioId; ?></td>
+	      <td align="left" valign="middle" bgcolor="#FFFFFF" style="font-size: 18px; color: #000000;"><?PHP echo $ScenarioId; ?></td>
         </tr>
 	    <tr>
 	      <td width="25%" align="right" valign="middle" bgcolor="#AAAAAA" style="font-size: 18px">CallerNumber</td>
-	      <td align="left" valign="middle" bgcolor="#FFFFFF" style="color: #FFFFFF"><?PHP echo $CallerNumber; ?></td>
+	      <td align="left" valign="middle" bgcolor="#FFFFFF" style="font-size: 18px; color: #000000;"><?PHP echo $CallerNumber; ?></td>
         </tr>
 	    <tr>
 	      <td width="25%" align="right" valign="middle" bgcolor="#AAAAAA" style="font-size: 18px">CallerName</td>
-	      <td align="left" valign="middle" bgcolor="#FFFFFF" style="color: #FFFFFF"><?PHP echo $CallerName; ?></td>
+	      <td align="left" valign="middle" bgcolor="#FFFFFF" style="font-size: 18px; color: #000000;"><?PHP echo $CallerName; ?></td>
         </tr>
 	    <tr>
 	      <td width="25%" align="right" valign="middle" bgcolor="#AAAAAA" style="font-size: 18px">StudentID</td>
-	      <td align="left" valign="middle" bgcolor="#FFFFFF" style="color: #FFFFFF"><?PHP echo $StudentID; ?></td>
+	      <td align="left" valign="middle" bgcolor="#FFFFFF" style="font-size: 18px; color: #000000;"><?PHP echo $StudentID; ?></td>
         </tr>
       </tbody>
 </table>
+	<p>&nbsp;</p>
+	<table width="80%" border="4" align="center">
+	  <tbody>
+		  <?PHP for($i=0;$i<count($ContactID);$i++): ?>
+	    <tr>
+	      <td align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch(<?PHP echo $ContactID[$i]; ?>)"><?PHP echo $ContactID[$i]; ?></td>
+        </tr>
+		  <?PHP endfor; ?>
+      </tbody>
+</table>
+	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 </body>
 </html>
