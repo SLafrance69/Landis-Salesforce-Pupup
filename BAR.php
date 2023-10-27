@@ -3,40 +3,23 @@
 ?>
 
 <?php
-// PHP Data Objects(PDO) Sample Code:
-//try {
-//    $conn = new PDO("sqlsrv:server = tcp:landis.database.windows.net,1433; Database = landis", "sa.admin", "Voma!495999!");
-//    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//}
-//catch (PDOException $e) {
-//    print("Error connecting to SQL Server.");
-//    die(print_r($e));
-//}
-
-// SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "sa.admin", "pwd" => "Voma!495999!", "Database" => "landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:landis.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
-
-      $query = $conn->prepare("SELECT * FROM IVR");
-      $query->execute();
-
-      foreach ($conn->query($query) as $row) {
-        print $row['ID'] . "\t";
-        print $row['ScenarioId'] . "\t";
-        print $row['CallerNumber'] . "\n";
-        print $row['CallerName'] . "\n";
-        print $row['StudentID'] . "\n";
-        print $row['ContactID'] . "\n";
-		print "---------------------------------------\n";
+    $serverName = "landis.database.windows.net";
+    $connectionOptions = array(
+        "Database" => "landis",
+        "Uid" => "sa.admin",
+        "PWD" => "Voma!495999!"
+    );
+    //Establishes the connection
+    $conn = sqlsrv_connect($serverName, $connectionOptions);
+    $tsql= "SELECT [ID],[ScenarioId],[CallerNumber],[CallerName],[StudentID],[ContactID] FROM [dbo].[IVR-BAR]";
+    $getResults= sqlsrv_query($conn, $tsql);
+    echo ("Reading data from table" . PHP_EOL);
+    if ($getResults == FALSE)
+        echo (sqlsrv_errors());
+    while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+     echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
     }
-
-      unset($conn); 
-      unset($query);
-
-
-
-
+    sqlsrv_free_stmt($getResults);
 ?>
 
 <!doctype html>
