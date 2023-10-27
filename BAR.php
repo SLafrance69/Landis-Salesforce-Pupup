@@ -83,7 +83,7 @@ body {
 	  <tbody>
 		  <?PHP for($i=0;$i<count($ContactID);$i++): ?>
 	    <tr>
-	      <td align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch(<?PHP echo $ContactID[$i]; ?>)"><?PHP echo $ContactID[$i]; ?></td>
+	      <td align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch(<?PHP echo $ContactID[$i]; ?>)">C : <?PHP echo $ContactID[$i]; ?></td>
         </tr>
 		  <?PHP endfor; ?>
       </tbody>
