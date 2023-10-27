@@ -17,7 +17,7 @@
     if ($getResults == FALSE)
         echo (sqlsrv_errors());
     while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-     echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+     echo ($row['ID'] . " " . $row['ScenarioId']. " " . $row['CallerNumber']. " " . $row['CallerName']. " " . $row['StudentID']. " " . $row['ContactID'] . PHP_EOL);
     }
     sqlsrv_free_stmt($getResults);
 ?>
