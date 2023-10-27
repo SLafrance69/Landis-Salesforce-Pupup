@@ -84,7 +84,7 @@ body {
 	  <tbody>
 		  <?PHP for($i=0;$i<count($ContactID);$i++): ?>
 	    <tr>
-	      <td align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch(<?PHP echo trim($ContactID[$i]); ?>)">C : <?PHP echo trim($ContactID[$i]); ?></td>
+	      <td align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')">C : <?PHP echo trim($ContactID[$i]); ?></td>
         </tr>
 		  <?PHP endfor; ?>
       </tbody>
