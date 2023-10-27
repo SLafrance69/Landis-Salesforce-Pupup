@@ -37,7 +37,8 @@
 <style type="text/css">
 body {
     background-color: #FFFFFF;
-    color: #000000;
+    color: #FFFFFF;
+    font-size: 18px;
 }
 </style>
 </head>
@@ -45,7 +46,6 @@ body {
 <script language="javascript">
 	function F_Launch(IN){
 		var V_URL="https://collegelacite.lightning.force.com/lightning/r/Contact/"+IN+"/view";
-		alert(V_URL);
 		window.open(V_URL,'Landis-SF');
 		return;	
 	}
@@ -84,7 +84,8 @@ body {
 	  <tbody>
 		  <?PHP for($i=0;$i<count($ContactID);$i++): ?>
 	    <tr>
-	      <td align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')">C : <?PHP echo trim($ContactID[$i]); ?></td>
+	      <td width="25%" align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')">Contact</td>
+	      <td align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')"><?PHP echo trim($ContactID[$i]); ?></td>
         </tr>
 		  <?PHP endfor; ?>
       </tbody>
