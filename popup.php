@@ -37,7 +37,7 @@
 <style type="text/css">
 body {
     background-color: #FFFFFF;
-    color: #FFFFFF;
+    color: #000000;
     font-size: 18px;
 }
 </style>
@@ -84,8 +84,7 @@ body {
 	  <tbody>
 		  <?PHP for($i=0;$i<count($ContactID);$i++): ?>
 	    <tr>
-	      <td width="25%" align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')">Contact</td>
-	      <td align="center" valign="middle" bgcolor="#000CFF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')"><?PHP echo trim($ContactID[$i]); ?></td>
+	      <td align="center" valign="middle" bgcolor="#9297FF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')">ContactID --> <?PHP echo trim($ContactID[$i]); ?></td>
         </tr>
 		  <?PHP endfor; ?>
       </tbody>
