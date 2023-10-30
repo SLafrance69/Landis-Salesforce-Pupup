@@ -5,7 +5,7 @@
 <?php
     $serverName = "landis-clc.database.windows.net";
     $connectionOptions = array(
-        "Database" => "landis",
+        "Database" => "landis-clc",
         "Uid" => "sa.admin",
         "PWD" => "Voma!495999!"
     );
