@@ -3,7 +3,7 @@
 ?>
 
 <?php
-    $serverName = "landis.database.windows.net";
+    $serverName = "landis-clc.database.windows.net";
     $connectionOptions = array(
         "Database" => "landis",
         "Uid" => "sa.admin",
