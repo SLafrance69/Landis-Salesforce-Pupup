@@ -13,7 +13,7 @@
      			die( print_r( sqlsrv_errors(), true));
 		}
 
-	$tsql= "SELECT * FROM BAR WHERE ScenarioId like '$ScenarioId' ";
+	$tsql= "SELECT * FROM BAR" // WHERE ScenarioId like '$ScenarioId' ";
     	$getResults= sqlsrv_query($conn, $tsql);
 		if( $getResults === false) {
     			die( print_r( sqlsrv_errors(), true) );
