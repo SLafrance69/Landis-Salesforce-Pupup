@@ -19,16 +19,8 @@
     			die( print_r( sqlsrv_errors(), true) );
 		}
 
-	while ($Info = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-		$ScenarioId		= $Info['ScenarioId'];
-		$CallerNumber		= $Info['CallerNumber'];
-		$CallerName		= $Info['CallerName'];
-		$StudentID		= $Info['StudentID'];
-		$ContactID		= $Info['ContactID'];
-
-		$MSG = "[".$ScenarioId."]"." "."[".$CallerNumber."]"." "."[".$CallerName."]"." "."[".$StudentID."]"." "."[".$ContactID."]";
-
-		print_r($MSG);
+	while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+		echo $row['ScenarioId']." ; ".$row['CallerNumber']." ; ".$row['CallerName']." ; ".$row['StudentID']." ; ".$row['ContactID']." <br> ";
     	}
-    	sqlsrv_free_stmt($getResults);
+    	sqlsrv_free_stmt($stmt);
 ?>
