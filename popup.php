@@ -19,10 +19,10 @@
 	$data = $conn->query($sql)->fetchAll();
 	$Count=0;
 	foreach ($data as $row) {
-   		$CallerNumber		= $Info['CallerNumber'];
-		$CallerName		= $Info['CallerName'];
-		$StudentID		= $Info['StudentID'];
-		$ContactID[$Count]	= $Info['ContactID'];
+   		$CallerNumber		= $data['CallerNumber'];
+		$CallerName		= $data['CallerName'];
+		$StudentID		= $data['StudentID'];
+		$ContactID[$Count]	= $data['ContactID'];
 
 		$Count++;
 	}
