@@ -23,6 +23,9 @@
 		$Count++;
     	}
     	sqlsrv_free_stmt($getResults);
+
+	print($tsql);
+	print("<BR>");
 ?>
 
 <!doctype html>
