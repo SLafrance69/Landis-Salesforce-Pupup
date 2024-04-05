@@ -12,13 +12,16 @@
 
 	$tsql= "SELECT * FROM [dbo].[BAR] WHERE [dbo].[BAR].ScenarioId like '".$ScenarioId."' ";
     	$getResults= sqlsrv_query($conn, $tsql);
+	if( $getResults === false) {
+    		die( print_r( sqlsrv_errors(), true) );
+	}
 
 	$Count=0;
 	while ($Info = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-		$CallerNumber		= $Info["CallerNumber"];
-		$CallerName		= $Info["CallerName"];
-		$StudentID		= $Info["StudentID"];
-		$ContactID[$Count]	= $Info["ContactID"];
+		$CallerNumber		= $Info['CallerNumber'];
+		$CallerName		= $Info['CallerName'];
+		$StudentID		= $Info['StudentID'];
+		$ContactID[$Count]	= $Info['ContactID'];
 		
 		$Count++;
     	}
