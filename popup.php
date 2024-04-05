@@ -7,6 +7,21 @@
 ?>
 
 <?php
+$serverName = "sql-landis.database.windows.net\\Landis"; //serverName\instanceName
+$connectionInfo = array( "Database"=>"BAR", "UID"=>"sa.local", "PWD"=>"L3tM3!nSQL2024");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+if( $conn ) {
+     echo "Connection established.<br />";
+	die();
+}else{
+     echo "Connection could not be established.<br />";
+     die( print_r( sqlsrv_errors(), true));
+}
+?>
+
+
+<?php
     $serverName = "sql-landis.database.windows.net";
     $connectionOptions = array(
         "Database" => "Landis",
