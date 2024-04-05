@@ -7,7 +7,7 @@
 ?>
 
 <?php
-$serverName = "sql-landis.database.windows.net\\Landis"; //serverName\instanceName
+$serverName = "sql-landis.privatelink.database.windows.net\\Landis"; //serverName\instanceName
 $connectionInfo = array( "Database"=>"BAR", "UID"=>"sa.local", "PWD"=>"L3tM3!nSQL2024");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
