@@ -13,7 +13,7 @@
 			print_r("Connected");
 		}
 
-	$sql= "SELECT * FROM BAR" // WHERE ScenarioId like '$ScenarioId' ";
+	$sql= "SELECT * FROM BAR"; // WHERE ScenarioId like '$ScenarioId' ";
     	$stmt = sqlsrv_query($conn, $sql);
 		if( $stmt === false) {
     			die( print_r( sqlsrv_errors(), true) );
