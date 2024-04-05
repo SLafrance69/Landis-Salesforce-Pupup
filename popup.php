@@ -3,27 +3,27 @@
 ?>
 
 <?php
-    $serverName = "landis-clc.database.windows.net";
+    $serverName = "sql-landis.database.windows.net";
     $connectionOptions = array(
-        "Database" => "landis-clc",
+        "Database" => "Landis",
         "Uid" => "sa.admin",
-        "PWD" => "Voma!495999!"
+        "PWD" => "L3tM3!nSQL2024"
     );
     //Establishes the connection
-//    $conn = sqlsrv_connect($serverName, $connectionOptions);
-//    $tsql= "SELECT [ID],[ScenarioId],[CallerNumber],[CallerName],[StudentID],[ContactID] FROM [dbo].[IVR] WHERE [dbo].[IVR].ScenarioId like '".$ScenarioId."' ";
-//    $getResults= sqlsrv_query($conn, $tsql);
+    $conn = sqlsrv_connect($serverName, $connectionOptions);
+    $tsql= "SELECT [ID],[ScenarioId],[CallerNumber],[CallerName],[StudentID],[ContactID] FROM [dbo].[IVR] WHERE [dbo].[IVR].ScenarioId like '".$ScenarioId."' ";
+    $getResults= sqlsrv_query($conn, $tsql);
 
-//	$Count=0;
-//	while ($Info = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-//		$CallerNumber		= $Info["CallerNumber"];
-//		$CallerName			= $Info["CallerName"];
-//		$StudentID			= $Info["StudentID"];
-//		$ContactID[$Count]	= $Info["ContactID"];
+	$Count=0;
+	while ($Info = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+		$CallerNumber		= $Info["CallerNumber"];
+		$CallerName		= $Info["CallerName"];
+		$StudentID		= $Info["StudentID"];
+		$ContactID[$Count]	= $Info["ContactID"];
 		
-//		$Count++;
-//    }
-//    sqlsrv_free_stmt($getResults);
+		$Count++;
+    }
+    sqlsrv_free_stmt($getResults);
 ?>
 
 <!doctype html>
