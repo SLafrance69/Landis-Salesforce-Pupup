@@ -4,34 +4,14 @@
 	error_reporting(E_ALL);
 
 	$ScenarioId=$_GET['ScenarioId'];
-?>
 
-<?php
-$serverName = "sql-landis.privatelink.database.windows.net\\Landis"; //serverName\instanceName
-$connectionInfo = array( "Database"=>"BAR", "UID"=>"sa.local", "PWD"=>"L3tM3!nSQL2024");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
+	//Establishes the connection
+	$connectionInfo = array("UID" => "sa.local", "pwd" => "L3tM3!nSQL2024", "Database" => "Landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+	$serverName = "tcp:sql-landis.database.windows.net,1433";
+	$conn = sqlsrv_connect($serverName, $connectionInfo);
 
-if( $conn ) {
-     echo "Connection established.<br />";
-	die();
-}else{
-     echo "Connection could not be established.<br />";
-     die( print_r( sqlsrv_errors(), true));
-}
-?>
-
-
-<?php
-    $serverName = "sql-landis.database.windows.net";
-    $connectionOptions = array(
-        "Database" => "Landis",
-        "Uid" => "sa.admin",
-        "PWD" => "L3tM3!nSQL2024"
-    );
-    //Establishes the connection
-    $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT * FROM [dbo].[BAR] WHERE [dbo].[BAR].ScenarioId like '".$ScenarioId."' ";
-    $getResults= sqlsrv_query($conn, $tsql);
+	$tsql= "SELECT * FROM [dbo].[BAR] WHERE [dbo].[BAR].ScenarioId like '".$ScenarioId."' ";
+    	$getResults= sqlsrv_query($conn, $tsql);
 
 	$Count=0;
 	while ($Info = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
@@ -42,7 +22,7 @@ if( $conn ) {
 		
 		$Count++;
     	}
-    sqlsrv_free_stmt($getResults);
+    	sqlsrv_free_stmt($getResults);
 ?>
 
 <!doctype html>
