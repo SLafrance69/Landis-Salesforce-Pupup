@@ -9,7 +9,7 @@
   // Converts it into a PHP object
   $data_jason = json_decode($json);
 
-
+	mail("slafra@lacitec.on.ca","JSON-TEST","BLA BLA BLA");
 	mail("slafra@lacitec.on.ca","JSON-BODY",$json);
 	mail("slafra@lacitec.on.ca","JSON-DATA",$data_jason);
 
