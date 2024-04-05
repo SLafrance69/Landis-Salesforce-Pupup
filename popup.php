@@ -15,7 +15,7 @@
     		die(print_r($e));
 	}
 
-	$sql = "SELECT * FROM BAR WHERE ScenarioId like '".$ScenarioId."'"
+	$sql = "SELECT * FROM BAR WHERE ScenarioId like '".$ScenarioId."'";
 	$data = $conn->query($sql)->fetchAll();
 	$Count=0;
 	foreach ($data as $row) {
