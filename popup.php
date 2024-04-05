@@ -1,4 +1,8 @@
 <?PHP
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+
 	$ScenarioId=$_GET['ScenarioId'];
 ?>
 
@@ -22,7 +26,7 @@
 		$ContactID[$Count]	= $Info["ContactID"];
 		
 		$Count++;
-    }
+    	}
     sqlsrv_free_stmt($getResults);
 ?>
 
