@@ -12,6 +12,8 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 
+die("PASS Connection Point A");
+
 // SQL Server Extension Sample Code:
 //$connectionInfo = array("UID" => "sa.local", "pwd" => "L3tM3!nSQL2024", "Database" => "Landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 //$serverName = "tcp:sql-landis.database.windows.net,1433";
