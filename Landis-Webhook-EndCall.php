@@ -9,6 +9,11 @@
   // Converts it into a PHP object
   $data_jason = json_decode($json);
 
+
+	mail("slafra@lacitec.on.ca","JSON-BODY",$json);
+	mail("slafra@lacitec.on.ca","JSON-DATA",$data_jason);
+
+
 	try {
     $conn = new PDO("sqlsrv:server = tcp:sql-landis.database.windows.net,1433; Database = Landis", "sa.local", "L3tM3!nSQL2024");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -41,7 +46,4 @@
 
   $sql = "UPDATE SET EventName=:EventName, QueueDisplayName=:QueueDisplayName, RemotePartyName=:RemotePartyName, RemotePartyName=:RemotePartyName, RemotePartyUri=:RemotePartyUri, RemotePartyNumber=:RemotePartyNumber, RemotePartyId=:RemotePartyId, CallStartDateTime=:CallStartDateTime, CallEndDateTime=:CallEndDateTime, CallLength=:CallLength, AgentUPN=:AgentUPN,TalkTime=:TalkTime, WaitTime=:WaitTime, CallbackRequested=:CallbackRequested, VoicemailRequested=:VoicemailRequested, TimedOut=:TimedOut, Abandoned=:Abandoned, ServiceLevelAchieved=:ServiceLevelAchieved WHERE ScenarioId=:ScenarioId";
   $conn->prepare($sql)->execute($data);
-
-	mail("slafra@lacitec.on.ca","JSON-BODY",$json);
-	mail("slafra@lacitec.on.ca","JSON-DATA",$data_jason);
 ?>
