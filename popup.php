@@ -18,6 +18,7 @@
 
 	$Count=0;
 	while ($Info = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+		print_r($Info);
 		$CallerNumber		= $Info['CallerNumber'];
 		$CallerName		= $Info['CallerName'];
 		$StudentID		= $Info['StudentID'];
