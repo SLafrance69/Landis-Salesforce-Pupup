@@ -6,15 +6,18 @@
 	$ScenarioId=$_GET['ScenarioId'];
 
 	//Establishes the connection
-	$connectionInfo = array("UID" => "sa.local", "pwd" => "L3tM3!nSQL2024", "Database" => "Landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 1);
+	$connectionInfo = array("UID" => "sa.local", "PRD" => "L3tM3!nSQL2024", "Database" => "Landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 1);
 	$serverName = "tcp:sql-landis.database.windows.net,1433";
 	$conn = sqlsrv_connect($serverName, $connectionInfo);
+		if( $conn === false ) {
+     			die( print_r( sqlsrv_errors(), true));
+		}
 
 	$tsql= "SELECT * FROM BAR WHERE ScenarioId like '$ScenarioId' ";
     	$getResults= sqlsrv_query($conn, $tsql);
-	if( $getResults === false) {
-    		die( print_r( sqlsrv_errors(), true) );
-	}
+		if( $getResults === false) {
+    			die( print_r( sqlsrv_errors(), true) );
+		}
 
 	$Count=0;
 	while ($Info = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
