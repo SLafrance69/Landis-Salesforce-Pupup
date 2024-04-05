@@ -19,6 +19,8 @@
     			die( print_r( sqlsrv_errors(), true) );
 		}
 
+	$rows_affected = sqlsrv_rows_affected( $stmt);
+	echo "[".$rows_affected."]<br>";
 	while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
 		echo $row['ScenarioId']." ; ".$row['CallerNumber']." ; ".$row['CallerName']." ; ".$row['StudentID']." ; ".$row['ContactID']." <br> ";
     	}
