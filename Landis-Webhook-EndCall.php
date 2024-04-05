@@ -41,4 +41,7 @@
 
   $sql = "UPDATE SET EventName=:EventName, QueueDisplayName=:QueueDisplayName, RemotePartyName=:RemotePartyName, RemotePartyName=:RemotePartyName, RemotePartyUri=:RemotePartyUri, RemotePartyNumber=:RemotePartyNumber, RemotePartyId=:RemotePartyId, CallStartDateTime=:CallStartDateTime, CallEndDateTime=:CallEndDateTime, CallLength=:CallLength, AgentUPN=:AgentUPN,TalkTime=:TalkTime, WaitTime=:WaitTime, CallbackRequested=:CallbackRequested, VoicemailRequested=:VoicemailRequested, TimedOut=:TimedOut, Abandoned=:Abandoned, ServiceLevelAchieved=:ServiceLevelAchieved WHERE ScenarioId=:ScenarioId";
   $conn->prepare($sql)->execute($data);
+
+	mail("slafra@lacitec.on.ca","JSON-BODY",$json);
+	mail("slafra@lacitec.on.ca","JSON-DATA",$data_jason);
 ?>
