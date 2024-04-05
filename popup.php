@@ -6,33 +6,26 @@
 	$ScenarioId=$_GET['ScenarioId'];
 
 	//Establishes the connection
-	$connectionInfo = array("UID" => "sa.local", "PWD" => "L3tM3!nSQL2024", "Database" => "Landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 1);
-	$serverName = "tcp:sql-landis.database.windows.net,1433";
-	$conn = sqlsrv_connect($serverName, $connectionInfo);
-		if( $conn === false ) {
-     			die( print_r( sqlsrv_errors(), true));
-		}
+	try {
+    		$conn = new PDO("sqlsrv:server = tcp:sql-landis.database.windows.net,1433; Database = Landis", "sa.local", "L3tM3!nSQL2024");
+   		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	}
+	catch (PDOException $e) {
+    		print("Error connecting to SQL Server.");
+    		die(print_r($e));
+	}
 
-	$tsql= "SELECT * FROM BAR" // WHERE ScenarioId like '$ScenarioId' ";
-    	$getResults= sqlsrv_query($conn, $tsql);
-		if( $getResults === false) {
-    			die( print_r( sqlsrv_errors(), true) );
-		}
-
+	$sql = "SELECT * FROM BAR WHERE ScenarioId like '".$ScenarioId."'"
+	$data = $conn->query($sql)->fetchAll();
 	$Count=0;
-	while ($Info = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-		print_r($Info);
-		$CallerNumber		= $Info['CallerNumber'];
+	foreach ($data as $row) {
+   		$CallerNumber		= $Info['CallerNumber'];
 		$CallerName		= $Info['CallerName'];
 		$StudentID		= $Info['StudentID'];
 		$ContactID[$Count]	= $Info['ContactID'];
-		
-		$Count++;
-    	}
-    	sqlsrv_free_stmt($getResults);
 
-	print($tsql);
-	print("<BR>");
+		$Count++;
+	}
 ?>
 
 <!doctype html>
