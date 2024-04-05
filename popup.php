@@ -23,6 +23,7 @@
 		$CallerName		= $row['CallerName'];
 		$StudentID		= $row['StudentID'];
 		$ContactID[$Count]	= $row['ContactID'];
+		$ContactName[$Count]	= $row['ContactName'];
 
 		$Count++;
 	}
@@ -86,7 +87,7 @@ body {
 	  <tbody>
 		  <?PHP for($i=0;$i<count($ContactID);$i++): ?>
 	    <tr>
-	      <td align="center" valign="middle" bgcolor="#9297FF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')">ContactID --> <?PHP echo trim($ContactID[$i]); ?></td>
+	      <td align="center" valign="middle" bgcolor="#9297FF" onClick="F_Launch('<?PHP echo trim($ContactID[$i]); ?>')"><?PHP echo trim($ContactName[$i]); ?><BR><?PHP echo trim($ContactID[$i]); ?></td>
         </tr>
 		  <?PHP endfor; ?>
       </tbody>
