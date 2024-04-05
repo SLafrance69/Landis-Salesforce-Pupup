@@ -6,7 +6,7 @@
 	$ScenarioId=$_GET['ScenarioId'];
 
 	//Establishes the connection
-	$connectionInfo = array("UID" => "sa.local", "pwd" => "L3tM3!nSQL2024", "Database" => "Landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+	$connectionInfo = array("UID" => "sa.local", "pwd" => "L3tM3!nSQL2024", "Database" => "Landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 1);
 	$serverName = "sql-landis.database.windows.net\Landis";
 	$conn = sqlsrv_connect($serverName, $connectionInfo);
 
