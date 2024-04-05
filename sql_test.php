@@ -5,7 +5,7 @@
 
 	// SQL Server Extension Sample Code:
 	$connectionInfo = array("UID" => "sa.local", "pwd" => "L3tM3!nSQL2024", "Database" => "Landis", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-	$serverName = "tcp:sql-landis.database.windows.net,1433";
+	$serverName = "tcp:sql-landis.database.windows.net/Landis,1433";
 	$conn = sqlsrv_connect($serverName, $connectionInfo);
 		if( $conn === false ) {
      			die( print_r( sqlsrv_errors(), true));
