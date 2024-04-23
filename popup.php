@@ -7,7 +7,7 @@
 
 	//Establishes the connection
 	try {
-    		$conn = new PDO("sqlsrv:server = tcp:sql-landis.privatelink.database.windows.net,1433; Database = sql-landis", "sa.local", "L3tM3!nSQL");
+    		$conn = new PDO("sqlsrv:server = tcp:sql-landis.database.windows.net,1433; Database = sql-landis", "sa.local", "L3tM3!nSQL");
    		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch (PDOException $e) {
