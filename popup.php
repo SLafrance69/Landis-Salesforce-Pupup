@@ -7,7 +7,7 @@
 
 	//Establishes the connection
 	try {
-    		$conn = new PDO("sqlsrv:server = tcp:sql-landis.database.windows.net,1433; Database = Landis", "sa.local", "L3tM3!nSQL2024");
+    		$conn = new PDO("sqlsrv:server = tcp:sql-landis.database.windows.net,1433; Database = sql-landis", "sa.local", "L3tM3!nSQL2024");
    		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	catch (PDOException $e) {
@@ -15,7 +15,7 @@
     		die(print_r($e));
 	}
 
-	$sql = "SELECT * FROM BAR WHERE ScenarioId like '".$ScenarioId."'";
+	$sql = "SELECT * FROM IVR-BAR WHERE ScenarioId like '".$ScenarioId."'";
 	$data = $conn->query($sql)->fetchAll();
 	$Count=0;
 	foreach ($data as $row) {
